@@ -132,7 +132,7 @@ const Main = () => {
                     xs: '10px',
                     md: '0px'
                 },
-            }}>Resume</Typography>
+            }}>Work</Typography>
             <Typography 
             sx={{
                 fontSize: {
