@@ -1,17 +1,196 @@
 'use client'
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import Link from 'next/link'
 import { AiOutlineHome } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import { TbBriefcase2 } from "react-icons/tb";
 import { BiSolidContact } from "react-icons/bi";
 import { GeneralContext } from '@/app/components/context';
-import { RiGraduationCapLine } from "react-icons/ri";
-import { HiOutlineBriefcase } from "react-icons/hi";
-import { Box, Container, Typography, Stack} from '@mui/material';
+import Image from 'next/image';
+import { Box, Container, Typography, Button } from '@mui/material';
 
 const Main = () => {
     const {darkMode} = useContext(GeneralContext)
+    const [activeTab, setActiveTab] = useState<string>('All');
+
+    const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+  };
+
+  const tabs = [
+    {name: 'All'}, {name : 'Web Development'}, {name: 'App Development'}, {name: 'Design'}, {name: 'Mentorship'}];
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'All':
+        return (
+            <Box 
+            sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '5px',
+                mt:'10px',
+                justifyContent: {xs: 'center', lg: 'space-evenly'},
+            }}>
+                <Link href='https://mortgage-calculator-tz14.vercel.app/'>
+                <Box
+                sx={{
+                    width: {md: '350px', xs: '250px'},
+                    padding: '5px',
+                    height: '150px',
+                    borderRadius: '20px',
+                    paddingBottom: '7px',
+                    paddingTop: '7px',
+                    gap:'7px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+                className= {` ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+                    <div className='w-full h-full rounded-[20px] overflow-hidden'>
+                    <Image alt='calculator' src={mortgage} width={304} height={100} className='object-cover w-full h-full' />
+                    </div>
+                    <Typography
+                    sx={{
+                        fontSize: {
+                            xs: '9px',
+                            md: '13px'},
+                            fontWeight: 700,
+                        marginLeft: '2px',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        display: 'flex',
+                    }}>Mortgage Calculator</Typography>
+                </Box>
+                </Link>
+
+                <Link href='https://newsletter-sepia.vercel.app/'>
+                <Box
+                sx={{
+                    width: {md: '350px', xs: '250px'},
+                    padding: '5px',
+                    height: '150px',
+                    borderRadius: '20px',
+                    paddingBottom: '7px',
+                    paddingTop: '7px',
+                    gap:'7px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+                className= {` ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+                    <div className='w-full h-full rounded-[20px] overflow-hidden'>
+                    <Image alt='newsletter' src={newspaper} width={304} height={100} className='object-cover w-full h-full' />
+                    </div>
+                    <Typography
+                    sx={{
+                        fontSize: {
+                            xs: '9px',
+                            md: '13px'},
+                            fontWeight: 700,
+                        marginLeft: '2px',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        display: 'flex',
+                    }}>Newsletter</Typography>
+                    </Box>
+                </Link>
+
+                <Link href='https://ticket-generator-psi.vercel.app/'>
+                <Box
+                sx={{
+                    width: {md: '350px', xs: '250px'},
+                    padding: '5px',
+                    height: '150px',
+                    borderRadius: '20px',
+                    paddingBottom: '7px',
+                    paddingTop: '7px',
+                    gap:'7px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+                className= {` ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+                    <div className='w-full h-full rounded-[20px] overflow-hidden'>
+                    <Image alt='ticket' src={ticket} width={304} height={100} className='object-cover w-full h-full' />
+                    </div>
+                    <Typography
+                    sx={{
+                        fontSize: {
+                            xs: '9px',
+                            md: '13px'},
+                            fontWeight: 700,
+                        marginLeft: '2px',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        display: 'flex',
+                    }}>Ticket Generator</Typography>
+                </Box>
+                </Link>
+
+                <Link href= 'https://contact-form-flax-xi.vercel.app/'>
+                <Box
+                sx={{
+                    width: {md: '350px', xs: '250px'},
+                    padding: '5px',
+                    height: '150px',
+                    borderRadius: '20px',
+                    paddingBottom: '7px',
+                    paddingTop: '7px',
+                    gap:'7px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+                className= {` ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+                    <div className='w-full h-full rounded-[20px] overflow-hidden'>
+                    <Image alt='contact' src={contact} width={304} height={100} className='object-cover w-full h-full' />
+                    </div>
+                    <Typography
+                    sx={{
+                        fontSize: {
+                            xs: '9px',
+                            md: '13px'},
+                            fontWeight: 700,
+                        marginLeft: '2px',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        display: 'flex',
+                    }}>Contact Form</Typography>
+                </Box>
+                </Link>
+            </Box>
+        );
+    case 'Web Development' :
+        // return(
+        //     <div className= {`w-[350px] h-[150px] rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+
+        //     </div>
+        // );
+    case 'App Development' :
+        // return(
+        //     <div className= {`w-[350px] h-[150px] rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+    
+        //     </div>
+        // );
+    case 'Design' :
+        // return(
+        //     <div className= {`w-[350px] h-[150px] rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+    
+        //     </div>
+        // );
+    
+    case 'Mentorship' :
+        // return(
+        //     <div className= {`w-[350px] h-[150px] rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
+        
+        //     </div>
+        // );   
+      default:
+        return null;
+  }
+}
+        const mortgage = '/mortgage.jpg'
+        const newspaper = '/newspaper.jpg'
+        const ticket = '/ticket.jpg'
+        const contact = '/contact.jpg'
+
   return (
     <Box
     sx={{
@@ -70,364 +249,98 @@ const Main = () => {
             </button>
             </Link>
         </Box >
-        <Box
-            sx={{
-                minWidth: {
-                    xs: '100%',
-                    md: '100%'
-                },
-                minHeight: '660px',
-                marginTop: '20px',
-                marginBottom: '5px',
-                alignSelf: 'end',
-                borderRadius: {md:'20px', xs: '0px'},
-                paddingLeft: {
-                    xs: '5px',
-                    md: '15px'},
-                paddingRight: {
+
+    <Box
+                sx={{
+                    minWidth: {
+                        xs: '100%',
+                        md: '100%'
+                    },
+                    minHeight: '660px',
+                    marginTop: '20px',
+                    marginBottom: '5px',
+                    alignSelf: 'end',
+                    borderRadius: {md:'20px', xs: '0px'},
+                    paddingLeft: {
                         xs: '5px',
                         md: '15px'},
-                paddingTop: '5px',
-                paddingBottom: '5px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: {
-                    xs: 'center',
-                },
-            }}
-            className={` ${darkMode ? 'bg-gray-700':'bg-[#FFFFFF]'}`}>
-        <Box
-        sx = {{
-            pl: {
-                xs: '5px',
-                md: '15px'
-            },
-            pr: {
-                xs: '5px',
-                md: '15px'
-            },
-            pb: {
-                xs: '3px',
-                md: '7px'
-            },
-            borderTopLeftRadius: '20px',
-            borderTopRightRadius: '20px',
-        }}
-        className={`${darkMode ? 'bg-gray-700':'bg-[#FFFFFF]' }`}>
-            
+                    paddingRight: {
+                            xs: '5px',
+                            md: '15px'},
+                    paddingTop: '5px',
+                    paddingBottom: '5px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: {
+                        xs: 'center',
+                    },
+                }}
+                className={` ${darkMode ? 'bg-gray-700':'bg-[#FFFFFF]'}`}>
         <Container 
-        sx ={{
-            display: 'flex',
-            paddingTop: '5px',
-            margin: '0'
-        }} >
-            <Typography 
+                sx ={{
+                    display: 'flex',
+                    paddingTop: '5px',
+                    margin: '0'
+                }} >
+                    <Typography 
+                    sx={{
+                        fontSize: {
+                            xs: '1rem',
+                            md: '1.2rem'
+                        },
+                        fontWeight: 700,
+                        marginLeft: {
+                            xs: '10px',
+                            md: '0px'
+                        },
+                    }}>Resume</Typography>
+                    <Typography 
+                    sx={{
+                        fontSize: {
+                            xs: '11px',
+                            md: '14px'
+                        },
+                        
+                        marginLeft: {
+                            xs: '2px',
+                            md: '5px'
+                        },
+                        color: darkMode ? 'gray.300' : 'orange.500'
+                    }}>
+                    ____________________________
+                    </Typography>
+                    </Container>
+
+            <Container
             sx={{
-                fontSize: {
-                    xs: '1rem',
-                    md: '1.2rem'
-                },
-                fontWeight: 700,
-                marginLeft: {
-                    xs: '10px',
-                    md: '0px'
-                },
-            }}>Resume</Typography>
-            <Typography 
-            sx={{
-                fontSize: {
-                    xs: '11px',
-                    md: '14px'
-                },
-                
-                marginLeft: {
-                    xs: '2px',
-                    md: '5px'
-                },
-                color: darkMode ? 'gray.300' : 'orange.500'
+                display: 'flex',
+                gap: "5px",
+                mt: '10px',
+                justifyContent: 'end',
             }}>
-            ____________________________
-            </Typography>
+                {tabs.map( (tab, index) => (
+                    <Button
+                    onClick={() => handleTabClick(tab.name)}
+                    key={index}             
+                    >
+                    <Typography 
+                    sx={{
+                        fontSize: {
+                            xs: '9px',
+                            md: '10px'
+                        },
+                    }}
+                     className = {`${activeTab === tab.name ? 'text-red-500 hover:text-red-300' : darkMode ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-500'}`}>
+                        {tab.name}
+                    </Typography>
+                    </Button>
+                ))}
             </Container>
-
-            <Box
-            sx={{
-                display: 'flex',
-                flexDirection: {
-                    xs: 'column',
-                    lg:'row'
-                },
-                gap: {xs: '2px', md: '10px'},
-                mt: '1rem'
-            }}>
-                <Container 
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                    margin: '0',
-                }}>
-                    <Stack direction={'row'} spacing={2}
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                    }}>
-                        <RiGraduationCapLine  className={darkMode ? 'text-gray-300':'text-orange-500'}/>
-                        <Typography 
-                        sx={{
-                            fontSize: {
-                                xs: '14px',
-                                md: '16px'
-                            },
-                            marginLeft: '3px',
-                            fontWeight: 700,
-                        }}>Education</Typography>
-                    </Stack>
-                    <Container
-                    sx={{
-                        minWidth: {md: '240px', xs: '180px'},
-                        maxWidth : {md: '300px', xs: '180px'},
-                        height: {md: '125px', xs:'100px'},
-                        borderRadius: '20px',
-                        padding: '5px',
-                        fontSize: {
-                            xs: '11px',
-                            md: '14px'
-                        },
-                        display: 'flex',
-                        flexDirection: 'column',
-                        paddingTop: '1rem',
-                        paddingBottom: '1rem'  
-                    }}
-                    className={`${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
-                    2024-2025 <br />
-                    Software Development <br />
-                    EarlyBell School
-                    </Container>
-                    <Container
-                    sx={{
-                        maminWidth: {md: '240px', xs: '180px'},
-                        maxWidth : {md: '300px', xs: '180px'},
-                        height: {md: '125px', xs:'100px'},
-                        borderRadius: '20px',
-                        padding: '5px',
-                        fontSize: {
-                            xs: '11px',
-                            md: '14px'
-                        },
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center', 
-                        paddingTop: '1rem',
-                        paddingBottom: '1rem'  
-                    }}
-                    className={`${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
-                    2019-2024 <br /> 
-                    Physics <br />
-                    University of Ilorin
-                    </Container>
-                    
-                </Container>
-                <Container 
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                    margin: '0',
-                }}>
-                    <Stack direction={'row'} spacing={2}
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                    }}>
-                        <HiOutlineBriefcase  className={darkMode ? 'text-gray-300':'text-orange-500'}/>
-                        <Typography 
-                        sx={{
-                            fontSize: {
-                                xs: '14px',
-                                md: '16px'
-                            },
-                            marginLeft: '3px',
-                            fontWeight: 700,
-                        }}>Experience</Typography>
-                    </Stack>
-                    <Container
-                    sx={{
-                        minWidth: {md: '240px', xs: '180px'},
-                        maxWidth : {md: '300px', xs: '180px'},
-                        height: {md: '125px', xs:'100px'},
-                        borderRadius: '20px',
-                        padding: '5px',
-                        fontSize: {
-                            xs: '11px',
-                            md: '14px'
-                        },
-                        display: 'flex',
-                        flexDirection: 'column',
-                        paddingTop: '1rem',
-                        paddingBottom: '1rem'  
-                    }}
-                    className={`${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
-                    2025 - present <br/>
-                    Frontend Developer <br />
-                    Fiverr
-                    </Container>
-                    <Container
-                    sx={{
-                        minWidth: {md: '240px', xs: '180px'},
-                        maxWidth : {md: '30px', xs: '180px'},
-                        height: {md: '125px', xs:'100px'},
-                        borderRadius: '20px',
-                        padding: '5px',
-                        fontSize: {
-                            xs: '11px',
-                            md: '14px'
-                        },
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center', 
-                        paddingTop: '1rem',
-                        paddingBottom: '1rem',
-                        flexWrap: 'wrap' 
-                    }}
-                    className={`${darkMode ? 'bg-black' : 'bg-[#FFE3BF]'}`}>
-                    2025 - present <br /> 
-                    Backend Developer <br />
-                    Upwork
-                    </Container>                 
-                </Container>
-            </Box>
-                </Box>
-            <Box
-            sx={{
-                mt: '1rem',
-                pl: '15px',
-                pr: '15px',
-                pb: '10px',
-                pt: '2px',
-                borderBottomLeftRadius: {md: '20px', xs: '0'},
-                borderBottomRightRadius: {md: '20px', xs: '0'},
-            }}
-            className={`${darkMode ? 'bg-gray-500':'bg-[#F8FBFB]' }`}>
-            <Box
-            sx={{
-                mt: '5px',
-                display: 'flex',
-                gap: '10px',
-            }}>
-                <Container
-                sx={{
-                    margin: '0',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '5px',
-                }}> 
-                <Typography sx={{
-                    fontSize: {
-                        xs: '14px', md: '16px'
-                    },
-                    fontWeight: 700,
-                    marginLeft: '3px',
-                }}>Work Skills</Typography> 
-                <Container 
-                sx={{
-                    display: 'flex',
-                    gap: '3.5px',
-                    fontSize: {
-                        xs: '11px', md: '14px'},
-                    flexWrap: 'wrap',
-                    margin: '0',
-                }}>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    NEXT.js
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    React.js
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    HTML 5
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    CSS 3
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Tailwind CSS
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Figma
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    JavaScript
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Mongo DB
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Git
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Rust
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Material UI
-                    </span>
-                </Container>     
-
-                </Container>
-                <Container
-                sx={{
-                    margin: '0',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '5px',
-                }}>
-                <Typography sx={{
-                    fontSize: {
-                        xs: '14px', md: '16px'
-                    },
-                    fontWeight: 700,
-                    marginLeft: '3px',
-                }}>Soft Skills</Typography>
-                <Container 
-                sx={{
-                    display: 'flex',
-                    gap: '3.5px',
-                    fontSize: {
-                        xs: '11px', md: '14px'},
-                    flexWrap: 'wrap',
-                    margin: '0',
-                }}>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Time Management 
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Mentorship 
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Collaboration
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Impeccable Communication
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Flexibility
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Research
-                    </span>
-                    <span className= {`p-2 flex items-center rounded-[20px] ${darkMode ? 'bg-black' : 'bg-[#E1E8EF]' }`}>
-                    Writing
-                    </span>
-                    </Container>
-                </Container>
-            </Box>
-            </Box>
-            </Box>
-
-            <Box>           
-        </Box>
+            <div>
+                {renderTabContent()}
+            </div>
+    </Box>
 </Box>
-
   )
 }
 
